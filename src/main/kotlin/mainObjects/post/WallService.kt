@@ -46,8 +46,7 @@ object WallService {
         return true
     }
 
-    fun showLast(){
-        println(posts.last())
+    fun reset() {
+        posts = emptyArray()
     }
-
 }
