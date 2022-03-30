@@ -1,6 +1,7 @@
 package mainObjects.post
 
 import mainObjects.post.additionalObjects.*
+import mainObjects.post.additionalObjects.attachments.*
 import org.junit.After
 import org.junit.Test
 import org.junit.Assert.*
@@ -16,6 +17,19 @@ class WallServiceTest {
 
     @Test
     fun wallService_add_returnedIdIsNotNull() {
+        val photoAttachment = PhotoAttachment(photo = Photo(11, 11, 11, 11))
+        val videoAttachment = VideoAttachment(video = Video(22, 22, 22, 22))
+        val audioAttachment = AudioAttachment(audio = Audio(33, 33))
+        val docAttachment = DocAttachment(doc = Doc(44, 44))
+        val linkAttachment = LinkAttachment(link = Link("www.123.ru"))
+
+        var arrayOfAttachments = emptyArray<Attachment>()
+        arrayOfAttachments += photoAttachment
+        arrayOfAttachments += videoAttachment
+        arrayOfAttachments += audioAttachment
+        arrayOfAttachments += docAttachment
+        arrayOfAttachments += linkAttachment
+
         val post1 = Post(
             id = 2000001,
             ownerId = 1000002,
@@ -32,6 +46,7 @@ class WallServiceTest {
             reposts = Reposts(2, false),
             views = Views(12544),
             postType = "post",
+            attachments = arrayOfAttachments,
             signerId = 3000003,
             canPin = false,
             canDelete = false,
@@ -53,6 +68,19 @@ class WallServiceTest {
 
     @Test
     fun wallService_update_returnTrue_when_IdExists() {
+        val photoAttachment = PhotoAttachment(photo = Photo(11, 11, 11, 11))
+        val videoAttachment = VideoAttachment(video = Video(22, 22, 22, 22))
+        val audioAttachment = AudioAttachment(audio = Audio(33, 33))
+        val docAttachment = DocAttachment(doc = Doc(44, 44))
+        val linkAttachment = LinkAttachment(link = Link("www.123.ru"))
+
+        var arrayOfAttachments = emptyArray<Attachment>()
+        arrayOfAttachments += photoAttachment
+        arrayOfAttachments += videoAttachment
+        arrayOfAttachments += audioAttachment
+        arrayOfAttachments += docAttachment
+        arrayOfAttachments += linkAttachment
+
         val post1 = Post(
             id = 2000001,
             ownerId = 1000002,
@@ -69,6 +97,7 @@ class WallServiceTest {
             reposts = Reposts(2, false),
             views = Views(12544),
             postType = "post",
+            attachments = arrayOfAttachments,
             signerId = 3000003,
             canPin = false,
             canDelete = false,
@@ -95,6 +124,7 @@ class WallServiceTest {
             reposts = Reposts(1, false),
             views = Views(125),
             postType = "post",
+            attachments = arrayOfAttachments,
             signerId = 3000004,
             canPin = true,
             canDelete = true,
@@ -114,6 +144,19 @@ class WallServiceTest {
 
     @Test
     fun wallService_update_returnFalse_when_IdDoesntExist() {
+        val photoAttachment = PhotoAttachment(photo = Photo(11, 11, 11, 11))
+        val videoAttachment = VideoAttachment(video = Video(22, 22, 22, 22))
+        val audioAttachment = AudioAttachment(audio = Audio(33, 33))
+        val docAttachment = DocAttachment(doc = Doc(44, 44))
+        val linkAttachment = LinkAttachment(link = Link("www.123.ru"))
+
+        var arrayOfAttachments = emptyArray<Attachment>()
+        arrayOfAttachments += photoAttachment
+        arrayOfAttachments += videoAttachment
+        arrayOfAttachments += audioAttachment
+        arrayOfAttachments += docAttachment
+        arrayOfAttachments += linkAttachment
+
         val post1 = Post(
             id = 2000001,
             ownerId = 1000002,
@@ -130,6 +173,7 @@ class WallServiceTest {
             reposts = Reposts(2, false),
             views = Views(12544),
             postType = "post",
+            attachments = arrayOfAttachments,
             signerId = 3000003,
             canPin = false,
             canDelete = false,
@@ -156,6 +200,7 @@ class WallServiceTest {
             reposts = Reposts(1, false),
             views = Views(125),
             postType = "post",
+            attachments = arrayOfAttachments,
             signerId = 3000004,
             canPin = true,
             canDelete = true,

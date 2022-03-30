@@ -31,6 +31,7 @@ object WallService {
                     reposts = post.reposts,
                     views = post.views,
                     postType = post.postType,
+                    attachments = post.attachments,
                     signerId = post.signerId,
                     canPin = post.canPin,
                     canDelete = post.canDelete,
