@@ -1,7 +1,6 @@
 package mainObjects.wallService
 
 import exceptions.CommentNotFoundException
-import exceptions.PostAlreadyExistsException
 import exceptions.PostNotFoundException
 import exceptions.UnknownReportReasonException
 import mainObjects.comment.Comment
@@ -18,16 +17,9 @@ object WallService {
         if (posts.isEmpty()) {
             newPost = post.copy(id = 1)
             posts += newPost
-            return posts.last()
-        }
-        for (postInArray in posts) {
-            if (post.id == postInArray.id) {
-                throw PostAlreadyExistsException()
-            } else {
-                newPost = post.copy(id = posts.last().id + 1)
-                posts += newPost
-                break
-            }
+        } else {
+            newPost = post.copy(id = posts.last().id + 1)
+            posts += newPost
         }
         return posts.last()
     }

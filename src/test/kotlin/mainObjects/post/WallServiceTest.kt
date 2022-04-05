@@ -1,7 +1,6 @@
 package mainObjects.post
 
 import exceptions.CommentNotFoundException
-import exceptions.PostAlreadyExistsException
 import exceptions.PostNotFoundException
 import exceptions.UnknownReportReasonException
 import mainObjects.comment.Comment
@@ -58,41 +57,6 @@ class WallServiceTest {
 
         assertEquals(expectedResult, actualResult)
     }
-
-    @Test(expected = PostAlreadyExistsException::class)
-        fun wallService_add_throws_PostAlreadyExistsException() {
-        val post1 = Post(
-            id = 2000001,
-            ownerId = 1000002,
-            fromId = 1000002,
-            createdBy = 1000002,
-            date = 10102020,
-            text = "Текст",
-            replyOwnerId = 1000003,
-            replyPostId = 2000003,
-            friendsOnly = true,
-            comments = Comments(5, true, true, false, false),
-            copyright = Copyright(3000001, "thatslink.com", "the source", "post"),
-            likes = Likes(355, false, true, true),
-            reposts = Reposts(2, false),
-            views = Views(12544),
-            postType = "post",
-            attachments = null,
-            signerId = 3000003,
-            canPin = false,
-            canDelete = false,
-            canEdit = false,
-            isPinned = false,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = Donut(false, 365, "placeholder", false, "duration"),
-            postponedId = 9000003
-        )
-
-        WallService.add(post1)
-        WallService.add(post1.copy(id = 1))
-        }
-
 
     @Test
     fun wallService_update_returnTrue_when_PostExists() {
