@@ -1,7 +1,7 @@
 package mainObjects.start
 
 import mainObjects.post.Post
-import mainObjects.post.WallService
+import mainObjects.wallService.WallService
 import mainObjects.post.additionalObjects.*
 import mainObjects.post.additionalObjects.attachments.*
 
